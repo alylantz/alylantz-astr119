@@ -3,6 +3,7 @@
 #------------------------------------------------------------------------------
 import math
 
+
 def multitab(n):
     """Print multiplication table up to n.
 
@@ -16,11 +17,12 @@ def multitab(n):
     """
     assert (type(n) is int) and (n > 0), "n must be positive integer"
 
-    ### THIS IS WHERE YOU COME IN
-    ### USE AS MANY LINES AS YOU NEED
-    ### USE A FOR LOOP OR WHILE LOOP, WHICHEVER YOU LIKE
-    ### YOU WILL PROBABLY NEED TO LOOK UP SOME THINGS
-    ### YOU WILL DISCOVER A USEFUL OPTIONAL PARAMETER TO THE FUNCTION PRINT()
+    # Print an n x n multiplication table with aligned columns.
+    for row in range(1, n + 1):
+        for col in range(1, n + 1):
+            product = row * col
+            print(f"{product:4d}", end="")
+        print()  
 
     return None
 

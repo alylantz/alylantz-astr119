@@ -27,14 +27,24 @@ def legpoly(n,x):
     assert (type(n) is int) and (n >= 0), "n must be nonnegative integer"
     assert (x >= -1) and (x <= 1), "x must be in [-1,1]" 
 
-    # Calculate P_n(x)
-    ### THIS IS WHERE YOU COME IN
-    ### USE AS MANY LINES AS YOU NEED
-    ### USE A FOR LOOP OR WHILE LOOP, WHICHEVER YOU LIKE
-    y = None
-    ###
+    # Handle base cases
+    if n == 0:
+        return 1.0
+    if n == 1:
+        return float(x)
 
-    return y
+    # Initialize the first two Legendre polynomials
+    p_prev = 1.0       # P_0(x)
+    p_curr = float(x)  # P_1(x)
+
+    # Loop to compute up to P_n(x) using the recursion relation
+    for k in range(1, n):
+        p_next = ((2 * k + 1) * x * p_curr - k * p_prev) / (k + 1)
+        p_prev = p_curr
+        p_curr = p_next
+
+    return p_curr
+
 
 ### For testing during development
 def _test1():
